@@ -24,30 +24,31 @@ const galleryClick = event => {
     if (event.target.nodeNmae !== "IMG") {
         return event;
     }
-    openModal(event.target.dataset.source);
+    onOpenModal(event.target.dataset.source);
 }
 galleryEl.addEventListener('click', galleryClick);
 
-
 const onCreateModal = img => basicLightbox.create(`<img src="${img}" width="1280" alt="${img}">`);
 
-const openModal = img => {
-    modalImage = createModal(img);
+const onOpenModal = img => {
+    modalImage = onCreateModal(img);
     modalImage.show();
     console.log("Open modal");
     document.addEventListener("keyup", onKeyPress);
-}
+};
 
-const closeModal = event => {
-    if (event === 'click') modalImage.close();
-    console.log('Close modal with click');
-    document.removeEventListener('click', onKeyPress);
-}
+const onCloseModal = event => {
+     if (event === "click") modalImage.close();
+    console.log("Close modal with click");
+    document.removeEventListener("click", onKeyPress);
+ };
+
 
 const onKeyPress = event => {
-    if (event.code === 'Escape') modalImage.close();
-    console.log('Close modal with escape');
-    document.removeEventListener('keyup', onKeyPress);
+    if (event.code === "Escape") modalImage.close();
+    console.log("Close modal with escape");
+    document.removeEventListener("keyup", onKeyPress);
 };
+
 
 console.log(galleryItems);
