@@ -37,12 +37,6 @@ const onOpenModal = img => {
     modalImage.show();
     console.log("Open modal");
 };
-
-const onCloseModal = event => {
-     if (event === "click") modalImage.close();
-    console.log("Close modal with click");
- };
-
 const onKeyPress = event => {
     if (event.code === "Escape") modalImage.close();
 };
